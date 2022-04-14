@@ -5,7 +5,7 @@
     $aplbcpSettingRow=$wpdb->get_results($aplbcpSettingSql);
 
 ?>
-        <form action="<?php echo plugins_url('include/aplbcp-settings-submit.php', __FILE__); ?>" method="post">
+        <form action="admin.php?page=aplbcp-products-settings" method="post">
         <h1 class="wp-heading-inline" style="display: inline-block;">Settings</h1>
 
         <button type="submit" class="addNewButton" style="display: inline-block;" name="updateSettingBtn">Update Settings</button>

@@ -49,7 +49,13 @@
 
         if($update)
         {
-            wp_redirect(admin_url( 'admin.php?page=aplbcp_settings&updatedsuccess=1'),301);
+            $url='admin.php?page=aplbcp_settings&updatedsuccess=1';
+			echo "<script>window.location.href='$url'</script>";
+			exit();
+        }
+        else{
+            $url='admin.php?page=aplbcp_settings&updatedsuccess=1';
+			echo "<script>window.location.href='$url'</script>";
 			exit();
         }
     }

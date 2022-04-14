@@ -175,6 +175,15 @@ function aplbcp_menu(){
         'aplbcp-products-delete',// $menu_slug,
         'aplbcp_products_delete'// $function
     );
+
+    add_submenu_page( null,//parent page slug
+        'Settings Submit | Affiliate Products List by ConicPlex',//$page_title
+        'Products List Settings',// $menu_title
+        'manage_options',// $capability
+        'aplbcp-products-settings',// $menu_slug,
+        'aplbcp_products_settings'// $function
+    );
+
 }
 
 /* Include admin style.CSS */
@@ -218,6 +227,10 @@ function aplbcp_products_preview(){
 
 function aplbcp_products_delete(){
     include(plugin_dir_path( __FILE__ ) . 'include/aplbcp-products-delete.php');
+}
+
+function aplbcp_products_settings(){
+    include(plugin_dir_path( __FILE__ ) . 'include/aplbcp-settings-submit.php');
 }
 
 /* Add Shortcode to Editor Menu */
