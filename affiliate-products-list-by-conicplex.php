@@ -1,12 +1,14 @@
 <?php
 /*
 Plugin Name: Affiliate Products List by ConicPlex
-Plugin URI: https://conicplex.com/
-Description:An amazing tool that creates a responsive yet creative beautiful table for Affiliate Products. Useful for listing similar items under a single affiliate post. Try and do share us feedback so that we can improve.
+Plugin URI: https://conicplex.com/affiliate-products-list-by-conicplex-plugin/
+Description: An amazing tool that creates a responsive yet creative beautiful table for Affiliate Products. Useful for listing similar items under a single affiliate post. Try and do share us feedback so that we can improve.
 Version: 1.0.0
 Author: Conicplex
 Author URI: https://conicplex.com/
-Text Domain: conicplex
+Text Domain: ConicPlex
+License: GPL2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Plugin Activation & Deactivation */
@@ -177,8 +179,8 @@ function aplbcp_menu(){
 
 /* Include admin style.CSS */
 
-add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
-function load_admin_styles() {
+add_action( 'admin_enqueue_scripts', 'aplbcp_load_admin_styles' );
+function aplbcp_load_admin_styles() {
     wp_register_style('aplbcp_admin_css', plugins_url('assets/css/admin-style.css',__FILE__ ));
     wp_enqueue_style('aplbcp_admin_css');
 }
@@ -220,7 +222,7 @@ function aplbcp_products_delete(){
 
 /* Add Shortcode to Editor Menu */
 	
-function wdm_add_mce_button() {
+function aplbcp_wdm_add_mce_button() {
     // check user permissions
 	    if ( !current_user_can( 'edit_posts' ) &&  !current_user_can( 'edit_pages' ) ) 
 	    {
@@ -229,23 +231,23 @@ function wdm_add_mce_button() {
 	    // check if WYSIWYG is enabled
 	    if ( 'true' == get_user_option( 'rich_editing' ) ) 
 	    {
-	        add_filter( 'mce_external_plugins', 'wdm_add_tinymce_plugin' );
-	        add_filter( 'mce_buttons', 'wdm_register_mce_button' );
+	        add_filter( 'mce_external_plugins', 'aplbcp_wdm_add_tinymce_plugin' );
+	        add_filter( 'mce_buttons', 'aplbcp_wdm_register_mce_button' );
 	    }
 	}
 
-	add_action('admin_head', 'wdm_add_mce_button');
+	add_action('admin_head', 'aplbcp_wdm_add_mce_button');
 
 	// register new button in the editor
-	function wdm_register_mce_button( $buttons )
+	function aplbcp_wdm_register_mce_button( $buttons )
 	{
         array_push( $buttons, 'wdm_mce_button' );
         return $buttons;
 	}
 
 	// the script will insert the shortcode on the click event
-	function wdm_add_tinymce_plugin( $plugin_array ) {
-    	$plugin_array['wdm_mce_button'] =  plugins_url('assets/js/wdm-mce-button.js', __FILE__);
+	function aplbcp_wdm_add_tinymce_plugin( $plugin_array ) {
+    	$plugin_array['wdm_mce_button'] =  plugins_url('assets/js/aplbcp-wdm-mce-button.js', __FILE__);
     	return $plugin_array;
 	}
 
@@ -253,7 +255,7 @@ function wdm_add_mce_button() {
 
 /* Modal For Select Chekclist ID */
 
-	function my_admin_footer_function(){
+	function aplbcp_admin_footer_function(){
 	?>
 	    <div id="myModal" class="modal">
 	      <div class="modal-content">
@@ -280,7 +282,7 @@ function wdm_add_mce_button() {
 	    </div>
 	<?php
 	}
-	add_action('admin_footer', 'my_admin_footer_function');
+	add_action('admin_footer', 'aplbcp_admin_footer_function');
 
 /* End of Modal For Select Chekclist ID */
 
