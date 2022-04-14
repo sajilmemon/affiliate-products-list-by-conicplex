@@ -1,6 +1,4 @@
 <?php
-
-    require_once('../wp-load.php');
 	
     if(!defined('ABSPATH'))
     {

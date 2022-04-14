@@ -1,7 +1,5 @@
 <?php
 
-require_once('../wp-load.php');
-
 	if(!defined('ABSPATH'))
 	{
 		die("Can't Access");
@@ -11,8 +9,8 @@ require_once('../wp-load.php');
 
 	if (isset($_POST['btnAddNewProduct'])) 
 	{
-//		$product_list_id = esc_sql($_POST['product_list_id']);
-        $product_name = esc_sql($_POST['product_name']);
+//		$product_list_id = sanitize_text_field($_POST['product_list_id']);
+        $product_name = sanitize_text_field($_POST['product_name']);
 
         $table= $wpdb->prefix.'aplbcp_products_list';
 		$update=$wpdb->insert($table,
@@ -27,13 +25,13 @@ require_once('../wp-load.php');
 		$table= $wpdb->prefix.'aplbcp_products';
 		foreach ($productNameArray as $productName) 
 		{
-			$product_name = esc_sql($productName);
+			$product_name = sanitize_text_field($productName);
 			if($product_name != "")
 			{
-				$product_name = esc_sql($product_name);
-                $product_image = esc_sql($_POST['productImageUrl'][$i]);
-				$product_desc = esc_sql($_POST['product_desc'][$i]);
-				$product_boy_now_link = esc_sql($_POST['product_boy_now_link'][$i]);
+				$product_name = sanitize_text_field($product_name);
+                $product_image = sanitize_text_field($_POST['productImageUrl'][$i]);
+				$product_desc = wp_kses_post($_POST['product_desc'][$i]);
+				$product_boy_now_link = sanitize_text_field($_POST['product_boy_now_link'][$i]);
 
 
 				$insert=$wpdb->insert($table, array(

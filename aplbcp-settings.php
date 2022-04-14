@@ -28,15 +28,15 @@
                 <div class="aplbcp-settings-items">
                     <div>
                         <label class="aplbcp-settings-label">Header Background Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_header_bg" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_header_bg; ?>" />
+                        <input class="aplbcp-settings-input" name="aplbcp_header_bg" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_bg); ?>" />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Header Text Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_header_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_header_color; ?>" />
+                        <input class="aplbcp-settings-input" name="aplbcp_header_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_color); ?>" />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Header Font Size</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_header_font_size" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_header_font_size; ?>" />
+                        <input class="aplbcp-settings-input" name="aplbcp_header_font_size" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_font_size); ?>" />
                     </div>
                     <!-- <div>
                         <label class="aplbcp-settings-label">Product Images Width</label>
@@ -44,59 +44,59 @@
                     </div> -->
                     <div>
                         <label class="aplbcp-settings-label">Product Images Height</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_product_img_hieght" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_product_img_hieght; ?>" />
+                        <input class="aplbcp-settings-input" name="aplbcp_product_img_hieght" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_img_hieght); ?>" />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Title Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_product_title_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_product_title_color; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_product_title_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_color); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Title Font Size</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_product_title_font_size" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_product_title_font_size; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_product_title_font_size" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Description Font Size</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_product_desc_font_size" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_product_desc_font_size; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_product_desc_font_size" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_desc_font_size); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Background Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_bg" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_bg; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_bg" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_bg); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Text Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_color; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_color); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Border Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_border_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_border_color; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_border_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_border_color); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Border Width</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_border_width" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_border_width; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_border_width" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_border_width); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Border Radius</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_radius" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_radius; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_radius" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_radius); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Hover Background Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_bg" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_hover_bg; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_bg" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_bg); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Hover Text Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_hover_color; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_color); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Hover Border Color</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_border_color" type="color" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_hover_border_color; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_border_color" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_border_color); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Hover Border Width</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_border_width" type="number" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_hover_border_width; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_border_width" type="number" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_border_width); ?>"  />
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Product Button Hover Shadow</label>
-                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_shadow" type="text" value="<?php echo $aplbcpSettingRow[0]->aplbcp_button_hover_shadow; ?>"  />
+                        <input class="aplbcp-settings-input" name="aplbcp_button_hover_shadow" type="text" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_shadow); ?>"  />
                     </div>
                 </div>
             </div>

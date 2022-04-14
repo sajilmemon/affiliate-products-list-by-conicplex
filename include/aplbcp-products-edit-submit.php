@@ -1,6 +1,4 @@
 <?php
-
-	require_once('../wp-load.php');
 	
 	if(!defined('ABSPATH'))
     {
@@ -11,8 +9,8 @@
 
 	if (isset($_POST['btnAddNewProduct'])) 
 	{
-		$product_list_id = esc_sql($_POST['product_list_id']);
-        $product_name = esc_sql($_POST['product_name']);
+		$product_list_id = sanitize_text_field($_POST['product_list_id']);
+        $product_name = sanitize_text_field($_POST['product_name']);
 
         $table= $wpdb->prefix.'aplbcp_products_list';
 		$update=$wpdb->update($table,
@@ -26,13 +24,13 @@
 		$table= $wpdb->prefix.'aplbcp_products';
 		foreach ($productIdArray as $productId) 
 		{
-			$product_id = esc_sql($productId);
+			$product_id = sanitize_text_field($productId);
 			if($product_id != "")
 			{
-				$product_name = esc_sql($_POST['product_second_name'][$i]);
-                $product_image = esc_sql($_POST['productImageUrl'][$i]);
-				$product_desc = esc_sql($_POST['product_desc'][$i]);
-				$product_boy_now_link = esc_sql($_POST['product_boy_now_link'][$i]);
+				$product_name = sanitize_text_field($_POST['product_second_name'][$i]);
+                $product_image = sanitize_text_field($_POST['productImageUrl'][$i]);
+				$product_desc = wp_kses_post($_POST['product_desc'][$i]);
+				$product_boy_now_link = sanitize_text_field($_POST['product_boy_now_link'][$i]);
 
 
 				$update=$wpdb->update($table, array(

@@ -138,7 +138,9 @@ $aplbcpProductListRow = $wpdb->get_results($aplbcpProductListSql);
             ));
 
             if ($page_links) {
-                echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $page_links . '</div></div>';
+            ?>
+                <div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0"><?php echo wp_kses_post($page_links); ?></div></div>;
+            <?php    
             }
             ?>
         </div>

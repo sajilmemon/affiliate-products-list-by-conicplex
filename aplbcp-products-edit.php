@@ -18,6 +18,8 @@ if (!isset($_GET['product_id'])) {
   $aplbcpProductsSql = "SELECT * FROM $table WHERE product_list_id='$products_id'";
   $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
 }
+
+
 ?>
 <div id="wpbody" role="main">
   <div id="wpbody-content">
@@ -27,8 +29,8 @@ if (!isset($_GET['product_id'])) {
 
         <div class="product-title-container">
           <div class="input-div">
-            <input type="hidden" name="product_list_id" value="<?php echo $products_id; ?>">
-            <input type="text" name="product_name" id="" required placeholder="Product List Name" value="<?php echo $aplbcpProductsListRow[0]->product_list_name; ?>">
+            <input type="hidden" name="product_list_id" value="<?php echo esc_attr($products_id); ?>">
+            <input type="text" name="product_name" id="" required placeholder="Product List Name" value="<?php echo esc_attr($aplbcpProductsListRow[0]->product_list_name); ?>">
           </div>
           <div class="button-div">
             <button type="submit" name="btnAddNewProduct" class="btnAddNewProduct">Update</button>
@@ -41,20 +43,20 @@ if (!isset($_GET['product_id'])) {
           <div class="product-main-details">
             <div class="product-details-container">
               <div class="product-details-container-items">
-                <input type="hidden" name="product_id[]" value="<?php echo $aplbcpProducts->id; ?>">
+                <input type="hidden" name="product_id[]" value="<?php echo esc_attr($aplbcpProducts->id); ?>">
                 <div class="productImagesDIv">
-                  <img class="productImagesPrev" style="width: auto; height: 100%;" src="<?php echo get_site_url()."".$aplbcpProducts->product_image; ?>" />
-                  <input type="hidden" required name="productImageUrl[]" class="productImageUrl" value="<?php echo $aplbcpProducts->product_image; ?>">
+                  <img class="productImagesPrev" style="width: auto; height: 100%;" src="<?php echo esc_attr(get_site_url()."".$aplbcpProducts->product_image); ?>" />
+                  <input type="hidden" required name="productImageUrl[]" class="productImageUrl" value="<?php echo esc_attr($aplbcpProducts->product_image); ?>">
                 </div>
 
-                <input type="text" required name="product_second_name[]" class="product_second_name" placeholder="Product Name" value="<?php echo $aplbcpProducts->product_name; ?>"><br>
+                <input type="text" required name="product_second_name[]" class="product_second_name" placeholder="Product Name" value="<?php echo esc_attr($aplbcpProducts->product_name); ?>"><br>
 
-                <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link" value="<?php echo $aplbcpProducts->buy_now_link; ?>">
+                <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link" value="<?php echo esc_attr($aplbcpProducts->buy_now_link); ?>">
 
               </div>
               <div class="product-details-container-items" style="flex-grow: 1;">
                 <?php $descId="product_desc".$aplbcpProducts->id; ?>
-                <?php wp_editor(stripslashes(str_replace('\r\n','',$aplbcpProducts->product_desc)), $descId, $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
+                <?php wp_editor(stripslashes(str_replace('\r\n','',wp_kses_post($aplbcpProducts->product_desc))), $descId, $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
               </div>
 
             </div>
