@@ -40,9 +40,8 @@ Activating the Affiliate Products List by ConicPlex plugin is just like any othe
 2. View All Affiliate Products List.
 3. Update the Color and Settings of Affiliate Products List.
 4. Preview of Affiliate Products List at Client Side.
-3. Mobile Responsive Preview of Affiliate Products List at Client Side.
+5. Mobile Responsive Preview of Affiliate Products List at Client Side.
 
 == Changelog ==
-
 = 1.0 =
 * Created Plugin From the Scratch.
