@@ -18,9 +18,9 @@
                         ,array('product_id' => $product_list_id));
 		
 		
-		$productIdArray = $_POST['product_id'];
+		$productIdArray = array_map('sanitize_text_field',$_POST['product_id']);
 		$i=0;
-
+  
 		$table= $wpdb->prefix.'aplbcp_products';
 		foreach ($productIdArray as $productId) 
 		{
@@ -30,7 +30,7 @@
 				$product_name = sanitize_text_field($_POST['product_second_name'][$i]);
                 $product_image = sanitize_text_field($_POST['productImageUrl'][$i]);
 				$product_desc = wp_kses_post($_POST['product_desc'][$i]);
-				$product_boy_now_link = sanitize_text_field($_POST['product_boy_now_link'][$i]);
+				$product_boy_now_link = sanitize_url($_POST['product_boy_now_link'][$i]);
 
 
 				$update=$wpdb->update($table, array(
@@ -46,14 +46,16 @@
 
 	
 			$url='admin.php?page=aplbcp_list_all&updatedsuccess=1';
-			echo "<script>window.location.href='$url'</script>";
-			exit();
+		?>
+			<script>window.location.href='<?php echo esc_attr($url); ?>'</script>;
+	<?php
 	}
 	else
 	{
 		$url='admin.php?page=aplbcp_list_all&success=0';
-		echo "<script>window.location.href='$url'</script>";
-		exit();
+	?>
+		<script>window.location.href='<?php echo esc_attr($url); ?>'</script>;
+	<?php
 	}
 
 	

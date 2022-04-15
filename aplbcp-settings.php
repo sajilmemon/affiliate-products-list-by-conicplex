@@ -27,6 +27,21 @@
                 </div>
                 <div class="aplbcp-settings-items">
                     <div>
+                        <label class="aplbcp-settings-label">Product Button Text</label>
+                        <input class="aplbcp-settings-input" name="aplbcp_product_button_text" type="text" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_text); ?>" />
+                    </div>
+                    <div>
+                        <label class="aplbcp-settings-label">Want to show the product price?</label>
+                        <input id="yes" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_button_text=='Y') echo "selected"; ?> type="radio" value="Y" />
+                        <label for="yes">Yes</label> <br />
+                        <input id="no" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_button_text=='N') echo "selected"; ?> type="radio" value="N" />
+                        <label for="no">No</label> <br />
+                    </div>
+                    <div>
+                        <label class="aplbcp-settings-label">Product Price Symbol</label>
+                        <input class="aplbcp-settings-input" name="aplbcp_product_price_symbol" type="text" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_price_symbol); ?>" />
+                    </div>
+                    <div>
                         <label class="aplbcp-settings-label">Header Background Color</label>
                         <input class="aplbcp-settings-input" name="aplbcp_header_bg" type="color" value="<?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_bg); ?>" />
                     </div>

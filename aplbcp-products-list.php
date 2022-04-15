@@ -4,11 +4,11 @@ $table = $wpdb->prefix . 'aplbcp_products_list';
 
 $pagenum = isset($_GET['pagenum']) ? absint($_GET['pagenum']) : 1;
 
-$limit = 20; // number of rows in page
+$limit = 1; // number of rows in page
 $offset = ($pagenum - 1) * $limit;
 
 if (isset($_POST['s'])) {
-    $searchText = esc_sql($_POST['s']);
+    $searchText = sanitize_text_field($_POST['s']);
     $aplbcpProductListSql = "SELECT * FROM $table WHERE product_list_name like '%$searchText%' OR product_id='$searchText' ORDER BY product_id DESC LIMIT $offset, $limit";
 
     $total = $wpdb->get_var("SELECT COUNT(`product_id`) FROM $table WHERE product_list_name like '%$searchText%' OR product_id='$searchText'");
@@ -68,7 +68,7 @@ $aplbcpProductListRow = $wpdb->get_results($aplbcpProductListSql);
             <form action="" method="post">
                 <p class="search-box aplbcp-product-list-search">
                     <input type="search" id="post-search-input" name="s" value="<?php if (isset($searchText)) {
-                                                                                    echo $searchText;
+                                                                                    echo esc_attr($searchText);
                                                                                 } ?>">
                     <input type="submit" id="search-submit" class="button" value="Search Product List">
                 </p>
@@ -86,35 +86,35 @@ $aplbcpProductListRow = $wpdb->get_results($aplbcpProductListSql);
                 foreach ($aplbcpProductListRow as $aplbcpProductList) {
                 ?>
                     <tr>
-                        <td><?php echo $i++; ?></td>
+                        <td><?php echo esc_attr($i++); ?></td>
                         <td class="">
-                            <a href="<?php echo admin_url('admin.php?page=aplbcp-products-edit&product_id=' . $aplbcpProductList->product_id); ?>">
+                            <a href="admin.php?page=aplbcp-products-edit&product_id=<?php echo esc_attr($aplbcpProductList->product_id); ?>">
                                 <strong>
-                                    <?php echo $aplbcpProductList->product_list_name; ?>
+                                    <?php echo esc_attr($aplbcpProductList->product_list_name); ?>
                                 </strong>
                             </a>
                             <div class="row-actions">
                                 <span class="edit">
-                                    <a href="<?php echo admin_url('admin.php?page=aplbcp-products-edit&product_id=' . $aplbcpProductList->product_id); ?>" aria-label="Edit">
+                                    <a href="admin.php?page=aplbcp-products-edit&product_id=<?php echo esc_attr($aplbcpProductList->product_id); ?>" aria-label="Edit">
                                         Edit
                                     </a> |
                                 </span>
                                 <span class="trash">
-                                    <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo admin_url('admin.php?page=aplbcp-products-delete&product_id=' . $aplbcpProductList->product_id); ?>" aria-label="Move Trash">
+                                    <a onclick="return confirm('Are you sure you want to delete?')" href="admin.php?page=aplbcp-products-delete&product_id=<?php echo esc_attr($aplbcpProductList->product_id); ?>" aria-label="Move Trash">
                                         Delete
                                     </a> |
                                 </span>
                                 <span class="view">
-                                    <a href="<?php echo admin_url('admin.php?page=aplbcp-products-preview&product_id=' . $aplbcpProductList->product_id); ?>" rel="bookmark" aria-label="Preview">
+                                    <a href="admin.php?page=aplbcp-products-preview&product_id=<?php echo esc_attr($aplbcpProductList->product_id); ?>" rel="bookmark" aria-label="Preview">
                                         Preview
                                     </a>
                                 </span>
                             </div>
                         </td>
                         <td>
-                            <strong>
-                                <?php echo "[aplbcp product_list=" . $aplbcpProductList->product_id . "]"; ?>
-                            </strong>
+                        <strong>
+                            <?php echo "[aplbcp product_list=" . $aplbcpProductList->product_id . "]"; ?>
+                        </strong>
                         </td>
                     </tr>
                 <?php

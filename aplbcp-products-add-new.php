@@ -16,6 +16,10 @@ wp_enqueue_media();
                     </div>
                 </div>
 
+                <?php
+                for($i=1;$i<=10;$i++)
+                {
+                ?>
                 <div class="product-main-details">
                     <div class="product-details-container">
                         <div class="product-details-container-items">
@@ -26,198 +30,21 @@ wp_enqueue_media();
 
                             <input type="text" required name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
 
-                            <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
+                            <input type="number" required name="product_price[]" class="product_price" placeholder="Product Price"><br>
+
+                            <input type="url" required name="product_boy_now_link[]" id="" placeholder="Affiliate Link">
 
                         </div>
+                        <?php $product_desc="product_desc". esc_attr($i); ?>
                         <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc1', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
+                            <?php wp_editor(stripslashes("Product Features"),esc_attr($product_desc), $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 10)); ?>
                         </div>
 
                     </div>
                 </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc2', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc3', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc4', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc5', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc6', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc7', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc8', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc9', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="product-main-details">
-                    <div class="product-details-container">
-                        <div class="product-details-container-items">
-                            <div class="productImagesDIv">
-                                <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" name="productImageUrl[]" class="productImageUrl">
-                            </div>
-
-                            <input type="text" name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
-
-                            <input type="text" name="product_boy_now_link[]" id="" placeholder="Buy Now Link">
-
-                        </div>
-                        <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"), 'product_desc10', $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 8)); ?>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- <div class="product-add-new-rows">
-                    <button type="button" class="addProductRowbtn" name="btnAddProductDetails">Add New</button>
-                </div> -->
+                <?php
+                }
+                ?>
             </form>
 
         </div>

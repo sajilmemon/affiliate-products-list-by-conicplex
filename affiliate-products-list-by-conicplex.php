@@ -48,12 +48,15 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
             aplbcp_button_hover_color VARCHAR(7) NOT NULL,
             aplbcp_button_hover_border_width INT(3) NOT NULL,
             aplbcp_button_hover_border_color VARCHAR(7) NOT NULL,
-            aplbcp_button_hover_shadow VARCHAR(30) NOT NULL, PRIMARY KEY (`aplbcp_setting_id`)) $charset_collate;";
+            aplbcp_button_hover_shadow VARCHAR(30) NOT NULL,
+            aplbcp_button_text VARCHAR(50) NOT NULL,
+            aplbcp_price_show ENUM('Y','N') NOT NULL,
+            aplbcp_price_symbol VARCHAR(4) NOT NULL, PRIMARY KEY (`aplbcp_setting_id`)) $charset_collate;";
 
 		dbDelta( $create_tb_sql );
         
-        $wpdb->query("INSERT INTO $table(`aplbcp_header_bg`, `aplbcp_header_color`,`aplbcp_header_font_size`,`aplbcp_product_img_hieght`, `aplbcp_product_title_color`,`aplbcp_product_title_font_size`, `aplbcp_product_desc_font_size`,`aplbcp_button_bg`,`aplbcp_button_color`, `aplbcp_button_border_width`, `aplbcp_button_border_color`, `aplbcp_button_radius`, `aplbcp_button_hover_bg`,`aplbcp_button_hover_color`, `aplbcp_button_hover_border_width`, `aplbcp_button_hover_border_color`,`aplbcp_button_hover_shadow`) VALUES
-		('#ff5900', '#FFFFFF','25','200','#ff5900','20','14','#ff5900','#FFFFFF','2','#ff5900','5','#FFFFFF','#ff5900','5','#ff5900','5px 10px #ff5900')");
+        $wpdb->query("INSERT INTO $table(`aplbcp_header_bg`, `aplbcp_header_color`,`aplbcp_header_font_size`,`aplbcp_product_img_hieght`, `aplbcp_product_title_color`,`aplbcp_product_title_font_size`, `aplbcp_product_desc_font_size`,`aplbcp_button_bg`,`aplbcp_button_color`, `aplbcp_button_border_width`, `aplbcp_button_border_color`, `aplbcp_button_radius`, `aplbcp_button_hover_bg`,`aplbcp_button_hover_color`, `aplbcp_button_hover_border_width`, `aplbcp_button_hover_border_color`,`aplbcp_button_hover_shadow`,`aplbcp_button_text`,`aplbcp_price_show`,`aplbcp_price_symbol`) VALUES
+		('#ff5900', '#FFFFFF','25','200','#ff5900','20','14','#ff5900','#FFFFFF','2','#ff5900','5','#FFFFFF','#ff5900','5','#ff5900','5px 10px #ff5900','Buy Now','Y','₹')");
 
         $table= $wpdb->prefix.'aplbcp_products_list';
         $create_tb_sql="CREATE TABLE $table(
