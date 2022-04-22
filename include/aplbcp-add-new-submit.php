@@ -32,14 +32,16 @@
                 $product_image = sanitize_text_field($_POST['productImageUrl'][$i]);
 				$product_desc = wp_kses_post($_POST['product_desc'][$i]);
 				$product_boy_now_link = sanitize_url($_POST['product_boy_now_link'][$i]);
-
+                $product_price = sanitize_text_field($_POST['product_price'][$i]);
 
 				$insert=$wpdb->insert($table, array(
                                                     'product_list_id' => $productListId,
 													'product_image' => $product_image,
 													'product_name' => $product_name,
 													'product_desc' => $product_desc,
-													'buy_now_link' => $product_boy_now_link));
+													'buy_now_link' => $product_boy_now_link,
+													'product_price' => $product_price
+												));
 			}
 			$i++;
 

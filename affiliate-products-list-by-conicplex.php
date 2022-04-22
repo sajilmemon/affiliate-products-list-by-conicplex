@@ -75,6 +75,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
         product_image VARCHAR(300) NOT NULL,
         product_desc TEXT NOT NULL,
         buy_now_link TEXT NOT NULL,
+        product_price INT(7) NOT NULL,
         PRIMARY KEY (`id`)) $charset_collate;";
 
         dbDelta( $create_tb_sql );

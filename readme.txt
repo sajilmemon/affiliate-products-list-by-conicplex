@@ -1,6 +1,6 @@
 === Affiliate Products List by ConicPlex ===
 Contributors: sajilmemon
-Tags: Affiliate Products List, Products List, Products List for Affiliate, Products Table, Products List Table
+Tags: Affiliate Products List, Products List, Products Table for Affiliate, Products Table, Products List Table
 Donate link: https://www.buymeacoffee.com/conicplex
 Requires at least: 5.9.3
 Tested up to: 5.9.3

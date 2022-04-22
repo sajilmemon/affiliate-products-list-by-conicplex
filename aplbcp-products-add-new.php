@@ -1,5 +1,14 @@
 <?php
 wp_enqueue_media();
+
+global $wpdb;
+$table= $wpdb->prefix.'aplbcp_setting';
+$aplbcpSettingSql="SELECT aplbcp_price_show FROM $table";
+$aplbcpSettingRow=$wpdb->get_var($aplbcpSettingSql);
+
+print_r($aplbcpSettingRow);
+
+
 ?>
 <div id="wpbody" role="main">
     <div id="wpbody-content">
@@ -25,14 +34,14 @@ wp_enqueue_media();
                         <div class="product-details-container-items">
                             <div class="productImagesDIv">
                                 <img class="productImagesPrev" style="width: 100px;" src="https://cdn-icons-png.flaticon.com/512/685/685669.png" />
-                                <input type="hidden" required name="productImageUrl[]" class="productImageUrl">
+                                <input type="hidden" <?php if($i==1) echo "required"; ?> name="productImageUrl[]" class="productImageUrl">
                             </div>
 
-                            <input type="text" required name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
+                            <input type="text" <?php if($i==1) echo "required"; ?> name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
 
-                            <input type="number" required name="product_price[]" class="product_price" placeholder="Product Price"><br>
+                            <input type="number" <?php if($i==1) echo "required"; ?> name="product_price[]" class="product_price" placeholder="Product Price"><br>
 
-                            <input type="url" required name="product_boy_now_link[]" id="" placeholder="Affiliate Link">
+                            <input type="url" <?php if($i==1) echo "required"; ?> name="product_boy_now_link[]" id="" placeholder="Affiliate Link">
 
                         </div>
                         <?php $product_desc="product_desc". esc_attr($i); ?>
