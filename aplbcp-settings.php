@@ -32,9 +32,9 @@
                     </div>
                     <div>
                         <label class="aplbcp-settings-label">Want to show the product price?</label>
-                        <input id="yes" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_button_text=='Y') echo "selected"; ?> type="radio" value="Y" />
+                        <input id="yes" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_price_show=='Y'){ echo "checked"; } ?> type="radio" value="Y" />
                         <label for="yes">Yes</label> <br />
-                        <input id="no" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_button_text=='N') echo "selected"; ?> type="radio" value="N" />
+                        <input id="no" class="aplbcp-settings-input-radio" name="aplbcp_product_price_show" <?php if($aplbcpSettingRow[0]->aplbcp_price_show=='N'){ echo "checked"; } ?> type="radio" value="N" />
                         <label for="no">No</label> <br />
                     </div>
                     <div>

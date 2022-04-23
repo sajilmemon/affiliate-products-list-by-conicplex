@@ -6,7 +6,13 @@ $table= $wpdb->prefix.'aplbcp_setting';
 $aplbcpSettingSql="SELECT aplbcp_price_show FROM $table";
 $aplbcpSettingRow=$wpdb->get_var($aplbcpSettingSql);
 
-print_r($aplbcpSettingRow);
+$aplbcpPriceShow=$aplbcpSettingRow;
+$aplbcpDescNoOfRows=7;
+
+if($aplbcpPriceShow=="Y"){
+
+    $aplbcpDescNoOfRows=10;
+}
 
 
 ?>
@@ -39,14 +45,26 @@ print_r($aplbcpSettingRow);
 
                             <input type="text" <?php if($i==1) echo "required"; ?> name="product_second_name[]" class="product_second_name" placeholder="Product Name"><br>
 
-                            <input type="number" <?php if($i==1) echo "required"; ?> name="product_price[]" class="product_price" placeholder="Product Price"><br>
-
+                            <?php
+                            if($aplbcpPriceShow=="N")
+                            {
+                            ?>
+                                <input type="hidden" value="0" name="product_price[]" />
+                            <?php
+                            }
+                            else
+                            {
+                            ?>
+                                <input type="number" <?php if($i==1) echo "required"; ?> name="product_price[]" class="product_price"   placeholder="Product Price"><br>
+                            <?php
+                            }
+                            ?>
                             <input type="url" <?php if($i==1) echo "required"; ?> name="product_boy_now_link[]" id="" placeholder="Affiliate Link">
 
                         </div>
                         <?php $product_desc="product_desc". esc_attr($i); ?>
                         <div class="product-details-container-items" style="flex-grow: 1;">
-                            <?php wp_editor(stripslashes("Product Features"),esc_attr($product_desc), $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => 10)); ?>
+                            <?php wp_editor(stripslashes("Product Features"),esc_attr($product_desc), $settings = array('media_buttons' => false, 'textarea_name' => 'product_desc[]', 'textarea_rows' => $aplbcpDescNoOfRows)); ?>
                         </div>
 
                     </div>

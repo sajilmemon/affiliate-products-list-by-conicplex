@@ -8,6 +8,19 @@ if (!isset($_GET['product_id'])) {
   wp_enqueue_media();
   global $wpdb;
 
+  $table= $wpdb->prefix.'aplbcp_setting';
+  $aplbcpSettingSql="SELECT aplbcp_price_show FROM $table";
+  $aplbcpSettingRow=$wpdb->get_var($aplbcpSettingSql);
+  
+  $aplbcpPriceShow=$aplbcpSettingRow;
+  $aplbcpDescNoOfRows=7;
+  
+  if($aplbcpPriceShow=="Y"){
+  
+      $aplbcpDescNoOfRows=10;
+  }
+  
+
   $products_id = esc_sql($_GET['product_id']);
 
   $table = $wpdb->prefix . 'aplbcp_products_list';
@@ -50,6 +63,21 @@ if (!isset($_GET['product_id'])) {
                 </div>
 
                 <input type="text" required name="product_second_name[]" class="product_second_name" placeholder="Product Name" value="<?php echo esc_attr($aplbcpProducts->product_name); ?>"><br>
+
+                <?php
+                  if($aplbcpPriceShow=="N")
+                  {
+                  ?>
+                      <input type="hidden" value="0" name="product_price[]" />
+                  <?php
+                  }
+                  else
+                  {
+                  ?>
+                      <input type="number" name="product_price[]" class="product_price"   placeholder="Product Price" value="<?php echo esc_attr($aplbcpProducts->product_price); ?>"><br>
+                  <?php
+                  }
+                ?>
 
                 <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link" value="<?php echo esc_attr($aplbcpProducts->buy_now_link); ?>">
 
