@@ -4,7 +4,7 @@ $table = $wpdb->prefix . 'aplbcp_products_list';
 
 $pagenum = isset($_GET['pagenum']) ? absint($_GET['pagenum']) : 1;
 
-$limit = 1; // number of rows in page
+$limit = 20; // number of rows in page
 $offset = ($pagenum - 1) * $limit;
 
 if (isset($_POST['s'])) {

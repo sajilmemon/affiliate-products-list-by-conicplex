@@ -12,9 +12,9 @@ if ($aplbcpSettingRow[0]->aplbcp_price_show == "Y") {
 }
 
 if (isset($attr['product_list'])) {
-    $product_id = $attr['product_list'];
+    $product_id = esc_attr($attr['product_list']);
 } elseif (isset($_GET['product_id'])) {
-    $product_id = esc_sql($_GET['product_id']);
+    $product_id = esc_attr($_GET['product_id']);
 }
 
 $table = $wpdb->prefix . 'aplbcp_products_list';
@@ -27,8 +27,7 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
 ?>
 
 <style>
-    .aplbcp-header,
-    .aplbcp-container .aplbcp-products {
+    .aplbcp-product-header, .aplbcp-products {
         display: flex;
         flex-direction: row;
         padding: 20px;
@@ -37,7 +36,7 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         margin: 10px;
     }
 
-    .aplbcp-header {
+    .aplbcp-product-header {
         align-self: center;
         margin: 5px;
         background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_bg); ?> !important;
@@ -46,25 +45,25 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_font_size); ?>px;
     }
 
-    .aplbcp-container .aplbcp-header .aplbcp-header-items {
+    .aplbcp-product-header-items {
         width: 33%;
         text-align: center;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items {
+    .aplbcp-products-items {
         width: 33%;
         align-self: center;
         text-align: center;
         margin: 5px;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-products-images {
+    .aplbcp-products-images {
         width: auto;
         height: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_img_hieght); ?>px;
         margin: 0 auto;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-products-title {
+    .aplbcp-products-title {
         color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_color); ?>;
         font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>px;
         font-weight: bold;
@@ -75,13 +74,13 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         font-weight: bold;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-products-desc {
+    .aplbcp-products-desc {
         margin: 10px;
         padding: 10px;
         font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_desc_font_size); ?>px;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-product-buynow-btn {
+    .aplbcp-product-buynow-btn {
         background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_bg); ?>;
         color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_color); ?>;
         padding: 10px;
@@ -93,7 +92,7 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         width: 50%;
     }
 
-    .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-product-buynow-btn:hover {
+    .aplbcp-product-buynow-btn:hover {
         background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_bg); ?>;
         color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_color); ?>;
         border: solid <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_border_width . "px " . $aplbcpSettingRow[0]->aplbcp_button_hover_border_color); ?>;
@@ -102,67 +101,66 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         transition: 0.2s;
     }
 
-    .aplbcp-products .aplbcp-products-items .aplbcp-products-desc ul {
+    .aplbcp-products-desc ul {
         padding-inline-start: 20px;
         margin: 0px;
         text-align: left;
     }
 
-    .aplbcp-container .aplbcp-header-for-mobile {
+    .aplbcp-product-header-for-mobile {
         display: none;
     }
 
     @media only screen and (max-width: 600px) {
-        .aplbcp-container .aplbcp-products {
+        .aplbcp-products {
             flex-direction: column;
         }
 
-        .aplbcp-container .aplbcp-products .aplbcp-products-items {
+        .aplbcp-products-items {
             width: 100%;
         }
 
-        .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-products-desc {
+        .aplbcp-products-desc {
             margin: 0;
         }
 
-        .aplbcp-container .aplbcp-products .aplbcp-products-items .aplbcp-product-buynow-btn {
+        .aplbcp-product-buynow-btn {
             width: auto;
         }
 
-        .aplbcp-products .aplbcp-products-items .aplbcp-products-desc ul {
+        .aplbcp-products-desc ul {
             padding-inline-start: 10px;
         }
 
-        .aplbcp-container .aplbcp-header-for-mobile {
+        .aplbcp-product-header-for-mobile {
             display: block;
         }
 
-        .aplbcp-container .aplbcp-header-for-non-mobile {
+        .aplbcp-product-header-for-non-mobile {
             display: none;
         }
 
-        .aplbcp-container .aplbcp-header .aplbcp-header-items {
+        .aplbcp-product-header-items {
             width: 100%;
             text-align: center;
         }
     }
 </style>
-
     <div class="aplbcp-container">
-        <div class="aplbcp-header aplbcp-header-for-non-mobile">
-            <div class="aplbcp-header-items">
+        <div class="aplbcp-product-header aplbcp-product-header-for-non-mobile">
+            <div class="aplbcp-product-header-items">
                 Product Name
             </div>
-            <div class="aplbcp-header-items">
+            <div class="aplbcp-product-header-items">
                 Product Features
             </div>
-            <div class="aplbcp-header-items">
+            <div class="aplbcp-product-header-items">
                 Buy Now
             </div>
         </div>
 
-        <div class="aplbcp-header aplbcp-header-for-mobile">
-            <div class="aplbcp-header-items">
+        <div class="aplbcp-product-header aplbcp-product-header-for-mobile">
+            <div class="aplbcp-product-header-items">
                 <?php echo esc_attr($aplbcpProductsListRow[0]->product_list_name); ?>
             </div>
         </div>

@@ -9,7 +9,7 @@
 
 	if (isset($_GET['product_id'])) 
 	{
-		$product_id = esc_sql($_GET['product_id']);
+		$product_id = esc_attr($_GET['product_id']);
 
         $table= $wpdb->prefix.'aplbcp_products_list';
 		$delete=$wpdb->delete($table,

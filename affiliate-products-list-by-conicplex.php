@@ -297,7 +297,7 @@ function aplbcp_wdm_add_mce_button() {
 				$results=$wpdb->get_results($aplbcp_modal_sql);
 	            foreach  ($results as $aplbcplist) 
 	            {
-	              echo'<option value="'.$aplbcplist->product_id.'">'.$aplbcplist->product_list_name.'</option>';
+	              echo wp_kses_post('<option value="'.$aplbcplist->product_id.'">'.$aplbcplist->product_list_name.'</option>');
 	            }
 	          ?>
 			  </datalist>
