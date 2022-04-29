@@ -40,9 +40,9 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
         align-self: center;
         margin: 5px;
         background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_bg); ?> !important;
-        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_color); ?>;
+        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_color); ?> !important;
         font-weight: bold;
-        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_font_size); ?>px;
+        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_header_font_size); ?>px !important;
     }
 
     .aplbcp-product-header-items {
@@ -59,44 +59,45 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
 
     .aplbcp-products-images {
         width: auto;
-        height: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_img_hieght); ?>px;
+        height: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_img_hieght); ?>px !important;
         margin: 0 auto;
     }
 
     .aplbcp-products-title {
-        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_color); ?>;
-        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>px;
+        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_color); ?> !important;
+        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>px !important;
         font-weight: bold;
+        margin: 10px !important;
     }
 
     .aplbcp-products-price {
-        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>px;
+        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_title_font_size); ?>px !important;
         font-weight: bold;
     }
 
     .aplbcp-products-desc {
         margin: 10px;
         padding: 10px;
-        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_desc_font_size); ?>px;
+        font-size: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_product_desc_font_size); ?>px !important;
     }
 
     .aplbcp-product-buynow-btn {
-        background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_bg); ?>;
-        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_color); ?>;
+        background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_bg); ?> !important;
+        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_color); ?> !important;
         padding: 10px;
         text-decoration: none;
-        border-radius: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_radius); ?>px;
-        border: solid <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_border_width . "px " . $aplbcpSettingRow[0]->aplbcp_button_border_color); ?>;
+        border-radius: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_radius); ?>px !important;
+        border: solid <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_border_width . "px " . $aplbcpSettingRow[0]->aplbcp_button_border_color); ?> !important;
         display: block;
         margin: 0 auto;
-        width: 50%;
+        width: 70%;
     }
 
     .aplbcp-product-buynow-btn:hover {
-        background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_bg); ?>;
-        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_color); ?>;
-        border: solid <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_border_width . "px " . $aplbcpSettingRow[0]->aplbcp_button_hover_border_color); ?>;
-        box-shadow: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_shadow); ?>;
+        background: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_bg); ?> !important;
+        color: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_color); ?> !important;
+        border: solid <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_border_width . "px " . $aplbcpSettingRow[0]->aplbcp_button_hover_border_color); ?> !important;
+        box-shadow: <?php echo esc_attr($aplbcpSettingRow[0]->aplbcp_button_hover_shadow); ?> !important;
         scale: 1.1;
         transition: 0.2s;
     }
@@ -193,7 +194,7 @@ $aplbcpProductsRow = $wpdb->get_results($aplbcpProductsSql);
                     <?php
                     }
                     ?>
-                    <a href="<?php echo esc_attr($aplbcpProducts->buy_now_link); ?>" target="_blank" class="aplbcp-product-buynow-btn">Buy Now</a>
+                    <a href="<?php echo esc_url($aplbcpProducts->buy_now_link); ?>" target="_blank" class="aplbcp-product-buynow-btn">Buy Now</a>
                 </div>
             </div>
 

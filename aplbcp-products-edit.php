@@ -79,7 +79,7 @@ if (!isset($_GET['product_id'])) {
                   }
                 ?>
 
-                <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link" value="<?php echo esc_attr($aplbcpProducts->buy_now_link); ?>">
+                <input type="text" required name="product_boy_now_link[]" id="" placeholder="Buy Now Link" value="<?php echo esc_url($aplbcpProducts->buy_now_link); ?>">
 
               </div>
               <div class="product-details-container-items" style="flex-grow: 1;">
