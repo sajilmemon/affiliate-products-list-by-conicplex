@@ -21,7 +21,7 @@ if (!isset($_GET['product_id'])) {
   }
   
 
-  $products_id = esc_attr($_GET['product_id']);
+  $products_id = sanitize_text_field($_GET['product_id']);
 
   $table = $wpdb->prefix . 'aplbcp_products_list';
   $aplbcpProductsListSql = "SELECT * FROM $table WHERE product_id='$products_id'";

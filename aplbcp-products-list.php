@@ -113,7 +113,7 @@ $aplbcpProductListRow = $wpdb->get_results($aplbcpProductListSql);
                         </td>
                         <td>
                         <strong>
-                            <?php echo "[aplbcp product_list=" . $aplbcpProductList->product_id . "]"; ?>
+                            <?php echo "[aplbcp product_list=" . esc_attr($aplbcpProductList->product_id) . "]"; ?>
                         </strong>
                         </td>
                     </tr>

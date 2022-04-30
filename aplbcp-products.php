@@ -14,7 +14,7 @@ if ($aplbcpSettingRow[0]->aplbcp_price_show == "Y") {
 if (isset($attr['product_list'])) {
     $product_id = esc_attr($attr['product_list']);
 } elseif (isset($_GET['product_id'])) {
-    $product_id = esc_attr($_GET['product_id']);
+    $product_id = sanitize_text_field($_GET['product_id']);
 }
 
 $table = $wpdb->prefix . 'aplbcp_products_list';
