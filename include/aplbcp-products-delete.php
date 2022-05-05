@@ -20,13 +20,17 @@
                         array('product_list_id' => $product_id));
 
         $url='admin.php?page=aplbcp_list_all&deletesuccess=1';
-        echo "<script>window.location.href='$url'</script>";
+        ?>
+        <script>window.location.href='<?php echo esc_attr($url); ?>'</script>;
+        <?php
         exit();
 	}
 	else
 	{
         $url='admin.php?page=aplbcp_list_all&success=0';
-        echo "<script>window.location.href='$url'</script>";
+        ?>
+        <script>window.location.href='<?php echo esc_attr($url); ?>'</script>;
+        <?php
         exit();
 	}
 
