@@ -297,8 +297,10 @@ function aplbcp_wdm_add_mce_button() {
 				$results=$wpdb->get_results($aplbcp_modal_sql);
 	            foreach  ($results as $aplbcplist) 
 	            {
-	              echo wp_kses_post('<option value="'.$aplbcplist->product_id.'">'.$aplbcplist->product_list_name.'</option>');
-	            }
+                ?>
+	              <option value="<?php echo esc_attr($aplbcplist->product_id); ?>"><?php echo esc_attr($aplbcplist->product_list_name); ?></option>');
+	            <?php
+                }
 	          ?>
 			  </datalist>
 	        <button type="button" class="btn btn-primary" id="btnsubmit">Inside Shortcode</button>

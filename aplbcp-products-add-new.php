@@ -109,24 +109,26 @@ var productImages = wp.media({
 
 jQuery(".btnAddNewProduct").click(function()
 {
-jQuery(".product_second_name").each(function() {
-
-    
-
-    if(jQuery(this).val()!="")
-    {
-        if(jQuery(this).siblings(".productImagesDIv").children('.productImageUrl').val()=="")
+    var returnResponse = true;
+    jQuery(".product_second_name").each(function() {
+        if(jQuery(this).val()!="")
         {
-            jQuery(this).siblings(".productImagesDIv").css("border","solid");
-            jQuery(this).siblings(".productImagesDIv").css("border-color","red");
-            alert("kindly Select the Product images");
+            if(jQuery(this).siblings(".productImagesDIv").children('.productImageUrl').val()=="")
+            {
+                jQuery(this).siblings(".productImagesDIv").css("border","solid");
+                jQuery(this).siblings(".productImagesDIv").css("border-color","red");
+                alert("kindly Select the Product images");
 
-            jQuery(form).submit(function(){
                 return false;
-            });
-            return false;
+                returnResponse = false;
+                // jQuery(form).submit(function(){
+                //     return false;
+                // });
+                
+            }
         }
-    }
-});
+    });
+
+    return returnResponse;
 });
 </script>
